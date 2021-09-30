@@ -1,6 +1,5 @@
-import { ElectionsList } from "./ElectionsList";
+import { ElectionListContainer } from "../containers/ElectionListContainer";
 import { Link } from "react-router-dom";
-import { ElectionBallot } from "./ElectionBallot";
 export const CaptureVotes = () => {
 
 
@@ -11,21 +10,6 @@ export const CaptureVotes = () => {
     // Display Ballot along with cast vote
 
     /// a ballot is a combination is a voter, election and the answer to the election 
-    let election = { 
-        id: 1, 
-        name: "Cats vs Dogs 2021",
-        listOfVoterIds: [], 
-        questions: [
-            {
-                votesForA: 0,
-                votesForB: 0,
-                questionText: "Cats vs Dogs?",
-                optionAText: "Cats",
-                optionBText: "Dogs",
-            },
-        ]
-    };
-
     let elections = [
         { 
             id: 1, 
@@ -65,11 +49,11 @@ export const CaptureVotes = () => {
     ];
 
 
+
     return(
         <>
             <h1>Vote Here!</h1>
-            {/*TODO: Use Grigor's table */}
-            <ElectionsList elections={elections}/>
+            <ElectionListContainer/>
             <Link to='/voter-creation'>Register to Vote Here!</Link>
         </>
     );

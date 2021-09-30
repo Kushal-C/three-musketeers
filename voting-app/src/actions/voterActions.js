@@ -1,3 +1,4 @@
+
 export const VERIFY_VOTER_INFORMATION = "VERIFY_VOTER_INFORMATION";
 export const SET_ACTIVE_VOTER = "SET_ACTIVE_VOTER";
 export const ADD_VOTER = "ADD_VOTER";
@@ -6,7 +7,7 @@ export const CANCEL_VOTER = "CANCEL_VOTER";
 export const SORT_VOTERS = "SORT_VOTERS";
 export const REMOVE_VOTER = "REMOVE_VOTER";
 export const REPLACE_VOTER = "REPLACE_VOTER";
-
+export const GET_VOTER_LIST = "GET_VOTER_LIST";
 
 export const createVerifyVoterInformationAction = voterInfo => {
     return ({ type: VERIFY_VOTER_INFORMATION, voterInfo });
@@ -31,3 +32,7 @@ export const createSortVotersAction = (col) => ({ type: SORT_VOTERS, col });
 export const createRemoveVoterAction = voterId => ({ type: REMOVE_VOTER, voterId });
 
 export const createReplaceVoterAction = voterId => ({ type: REPLACE_VOTER, voterId });
+
+export const createGetVoterListAction = () => {
+    return ({type: GET_VOTER_LIST,})
+};

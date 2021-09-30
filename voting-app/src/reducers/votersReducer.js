@@ -1,5 +1,3 @@
-import { combineReducers } from "redux";
-
 import { VERIFY_VOTER_INFORMATION, ADD_VOTER, EDIT_VOTER} from "../actions/voterActions";
 
 const dummyVoters= [
