@@ -1,7 +1,6 @@
 //Reuse Grigor's table
 import { Link } from "react-router-dom"
-export const ElectionsList = ({elections}) => {
-    
+export const ElectionsList = ({elections, onSetActiveElection: setActiveElection}) => {
     return (
         <ul>
             {
@@ -10,7 +9,7 @@ export const ElectionsList = ({elections}) => {
                         <li key={election.id}>
                             <Link
                                 to='/vote'
-                                state={{ election: election }}
+                                onClick={() => setActiveElection(election)}
                             >
                                 {election.name}
                             </Link> 

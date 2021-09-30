@@ -1,4 +1,4 @@
-import { SET_ACTIVE_ELECTION } from '../actions/electionActions';
+import { SET_ACTIVE_ELECTION , VOTE_ON_ELECTION} from '../actions/electionActions';
 
 let dummyElections = [
     { 
@@ -39,14 +39,28 @@ let dummyElections = [
 ];
 
 export const electionsReducer = ( elections = dummyElections, action) => {
-    return elections;
+    switch(action.type){
+        case VOTE_ON_ELECTION:
+            let {electionId, voterId, votes } = action.vote;
+            let electionsCopy = [...elections];
+            let index = electionsCopy.findIndex((e) => e.id === electionId);
+            electionsCopy[index].listOfVoterIds.push(voterId);
+            electionsCopy[index].questions.forEach(
+                (q, i) => votes[i] === "a" ? q.votesForA++ : q.votesForB++
+            );
+            return electionsCopy;
+        default:
+            return elections;
+    }
 };
 
-export const voteOnElectionReduecr = (election = {}, action) => {
+export const setActiveElectionReducer = (activeElection = {}, action) => {
     switch(action.type){
         case SET_ACTIVE_ELECTION:
-            election = action.election;
+            activeElection = action.election;
+        case VOTE_ON_ELECTION:
+            return {};
         default:
-            return election;
+            return activeElection;
     }
 }

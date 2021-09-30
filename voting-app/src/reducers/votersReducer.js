@@ -1,4 +1,4 @@
-import { VERIFY_VOTER_INFORMATION } from "../actions/voterActions";
+
 const dummyVoters= [
     {
         id: 1,
