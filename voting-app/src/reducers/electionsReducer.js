@@ -61,7 +61,7 @@ export const electionsReducer = ( elections = dummyElections, action) => {
     }
 };
 
-export const voteOnElectionReduecr = (election = {}, action) => {
+export const setActiveElectionReducer = (election = {}, action) => {
     switch(action.type){
         case SET_ACTIVE_ELECTION:
             election = action.election;
