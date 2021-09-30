@@ -1,3 +1,5 @@
+import { SET_ACTIVE_ELECTION } from '../actions/electionActions';
+
 let dummyElections = [
     { 
         id: 1, 
@@ -39,3 +41,12 @@ let dummyElections = [
 export const electionsReducer = ( elections = dummyElections, action) => {
     return elections;
 };
+
+export const voteOnElectionReduecr = (election = {}, action) => {
+    switch(action.type){
+        case SET_ACTIVE_ELECTION:
+            election = action.election;
+        default:
+            return election;
+    }
+}
