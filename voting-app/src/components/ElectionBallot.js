@@ -1,24 +1,19 @@
 import { useState } from "react";
-import { useLocation } from 'react-router-dom';
 
 import { VerifyStatus } from "./VerifyStatus";
 
-export const ElectionBallot = () => {
+export const ElectionBallot = ({ election }) => {
     //3 possible states, 
     // verifying -> shows enter PII Screen
     // invalid -> shows error screen with a go to main screen button
     // valid -> navigates to fill out ballot screen
 
     const [voterStatus, setVoterStatus] = useState("VERIFYING");
-
+    const [voterInfo, setVoterInfo] = useState({firstName: '', lastName:'', voterID:''});
+    
     return (
         <>
-            {voterStatus === "VERIFYING" ? 
-                <VerifyStatus/> 
-            : voterStatus === "INVALID" ? 
-                <VerifyStatus/> 
-            : 
-                <VerifyStatus/>}
+            <VerifyStatus electionId={election.id}/>
         </>
     )
 
