@@ -22,7 +22,7 @@ export const VerifyStatus = ({election , validateVoter}) => {
                 <input type="text" id="lastNameInput" name="lastName" value={form.lastName} onChange={change}></input>
                 <label htmlFor="voterIDInput">Voter ID</label>
                 <input type="number" id="voterIDInput" name="id" value={form.id} onChange={change}></input>
-                <button type="submit" onClick={() => validateVoter(form)}></button>
+                <button type="submit" onClick={() => validateVoter(form)}>Verify Voter Status</button>
             </form>
         </div>
     )
