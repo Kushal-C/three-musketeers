@@ -1,6 +1,7 @@
 import { VoterViewRow } from './VoterViewRow';
 import { VoterEditRow } from './VoterEditRow';
 
+<<<<<<< HEAD
 const dataCols = [
     { name: 'id', caption: 'Id' },
     { name: 'firstName', caption: 'First Name' },
@@ -41,6 +42,14 @@ export const VoterList = ({
     sortArrow('id');
     const SortHeaderCol = sortHeaderColWrapper(sortVoters, sortArrowWrapper(col, dir));
 
+=======
+export const VoterList = ({ 
+    voters, editVoterId, 
+    onEditVoter: editVoter, onDeleteVoter: deleteVoter,
+    onSaveVoter: saveVoter, onCancelVoter: cancelVoter,
+ }) => {
+
+>>>>>>> c97a9cd (Initialized voter system for workflow 1)
     return (
       <>
         <header>
@@ -49,8 +58,19 @@ export const VoterList = ({
         <table>
             <thead>
                 <tr>
+<<<<<<< HEAD
                     {dataCols.map(dataCol => <SortHeaderCol key={dataCol.id} col={dataCol} />)}
                     <th>Actions</th>
+=======
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Birthdate</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+>>>>>>> c97a9cd (Initialized voter system for workflow 1)
                 </tr>
             </thead>
             <tbody>
