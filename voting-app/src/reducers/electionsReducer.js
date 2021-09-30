@@ -1,4 +1,4 @@
-import { SET_ACTIVE_ELECTION , VOTE_ON_ELECTION} from '../actions/electionActions';
+import { SET_ACTIVE_ELECTION , VOTE_ON_ELECTION, CREATE_NEW_ELECTION} from '../actions/electionActions';
 
 let dummyElections = [
     { 
@@ -40,6 +40,13 @@ let dummyElections = [
 
 export const electionsReducer = ( elections = dummyElections, action) => {
     switch(action.type){
+        case CREATE_NEW_ELECTION:
+            let electionCopy = [...elections];
+            electionCopy.push({ 
+                ...action.election, 
+                id: Math.max(elections.map(e => e.id), 0) + 1 
+            })
+            return electionCopy;
         case VOTE_ON_ELECTION:
             let {electionId, voterId, votes } = action.vote;
             let electionsCopy = [...elections];
@@ -54,13 +61,11 @@ export const electionsReducer = ( elections = dummyElections, action) => {
     }
 };
 
-export const setActiveElectionReducer = (activeElection = {}, action) => {
+export const voteOnElectionReduecr = (election = {}, action) => {
     switch(action.type){
         case SET_ACTIVE_ELECTION:
-            activeElection = action.election;
-        case VOTE_ON_ELECTION:
-            return {};
+            election = action.election;
         default:
-            return activeElection;
+            return election;
     }
 }

@@ -4,7 +4,7 @@ import { ElectionCreationTableContainer} from '../containers/ElectionCreationTab
 
 
 
-export const ElectionCreation = () => {
+export const ElectionCreation = ({ voters: initialElections }) => {
     //Create Form
     //Create Tables
     //create view row
@@ -12,7 +12,7 @@ export const ElectionCreation = () => {
         <>
             <h1>ElectionCreation</h1>
             <ElectionCreationTableContainer />
-            <ElectionCreationFormConatiner />
+            <ElectionCreationFormConatiner initialVoters={initialElections}/>
         </>
     );
 }
