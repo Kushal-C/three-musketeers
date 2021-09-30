@@ -1,3 +1,4 @@
+import { VERIFY_VOTER_INFORMATION, ADD_VOTER, EDIT_VOTER} from "../actions/voterActions";
 
 const dummyVoters= [
     {
@@ -24,5 +25,13 @@ const dummyVoters= [
 ]
 
 export const votersReducer = ( voters = dummyVoters, action ) => {
-    return voters;
+    switch(action.type) {
+        case ADD_VOTER:
+            return [
+                ...voters,
+                {...action.value, id: Math.max(voters.map(v => v.id), 0) + 1}
+            ]
+        default:
+            return voters;    
+    }
 };
