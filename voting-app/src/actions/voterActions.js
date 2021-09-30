@@ -33,6 +33,4 @@ export const createRemoveVoterAction = voterId => ({ type: REMOVE_VOTER, voterId
 
 export const createReplaceVoterAction = voterId => ({ type: REPLACE_VOTER, voterId });
 
-export const createGetVoterListAction = () => {
-    return ({type: GET_VOTER_LIST,})
-};
+export const createGetVoterListAction = () => ({type: GET_VOTER_LIST,});

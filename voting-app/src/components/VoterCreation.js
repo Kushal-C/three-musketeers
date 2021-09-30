@@ -1,25 +1,13 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
 
 import { VoterList } from './VoterList';
 import { VoterForm } from './VoterForm';
 
-export const VoterCreation = ({ voters: initialVoters }) => {
+export const VoterCreation = ({ voters: initialVoters , onAddVoter : addVoter}) => {
 
   const [ voters, setVoters ] = useState([ ...initialVoters ]);
 
   const [ editVoterId, setEditVoterId ] = useState(-1);
-
-  const addVoter = (newVoter) => {
-    setVoters([
-      ...voters,
-      {
-        ...newVoter,
-        id: Math.max(...voters.map(voter => voter.id), 0) + 1,
-      },
-    ]);
-    setEditVoterId(-1);
-  };
 
   const saveVoter = (voter) => {
     const newVoters = [ ...voters ];
@@ -48,7 +36,7 @@ export const VoterCreation = ({ voters: initialVoters }) => {
         <button>Display Registered Voters</button>
 
         <VoterForm onSubmitVoter={addVoter}/>
-        <VoterList voters={voters} editVoterId={editVoterId}
+        <VoterList voters={initialVoters} editVoterId={editVoterId}
           onEditVoter={editVoter} onDeleteVoter={deleteVoter} 
           onSaveVoter={saveVoter} onCancelVoter={cancelVoter} />
       </>
