@@ -65,7 +65,8 @@ export const deleteVoter = (voterId) => {
         dispatch(createDeleteVoterDoneAction(voterId));
         dispatch(refreshVoters());
     };
-}
+};
+
 export const addVoter = (newVoter) => {
     return async dispatch => {
         dispatch(createAddVoterRequestAction());

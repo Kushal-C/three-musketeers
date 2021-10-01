@@ -9,13 +9,12 @@ export const VoterCreation = ({
 
 }) => {  
     return (
-      <>
-        <h1>Voter registration system</h1>
+      <div className="voterForm">
         <VoterForm onSubmitVoter={addVoter}/>
         <VoterList voters={initialVoters} editVoterId={editVoterId}
           onEditVoter={editVoter} onDeleteVoter={deleteVoter} 
           onSaveVoter={saveVoter} onCancelVoter={cancelVoter}
           votersSort={votersSort} onSortVoters={sortVoters}/>
-      </>
+      </div>
     );
   };

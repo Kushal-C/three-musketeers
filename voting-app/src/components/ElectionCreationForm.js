@@ -55,7 +55,6 @@ export const ElectionCreationForm = ({buttonText, onAdd: onSubmitElection}) => {
     }
 
     return(
-        <header>
         <form>
             <div>
                 <h2>Form</h2>
@@ -108,6 +107,5 @@ export const ElectionCreationForm = ({buttonText, onAdd: onSubmitElection}) => {
                 }
             </div>
         </form>
-        </header>
-    )
+    );
 }

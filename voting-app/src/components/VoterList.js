@@ -45,10 +45,8 @@ export const VoterList = ({
     const SortHeaderCol = sortHeaderColWrapper(sortVoters, sortArrowWrapper(col, dir));
 
     return (
-      <>
-        <header>
-          <h1>Registered voters list</h1>
-        </header>
+      <>  
+        <h1>Registered voters list</h1>
         <table>
             <thead>
                 <tr>

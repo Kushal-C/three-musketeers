@@ -18,11 +18,11 @@
       "id": 2,
       "name": "Food Battle 2021",
       "listOfVoterIds": [
-
+        3
       ],
       "questions": [
         {
-          "votesForA": 0,
+          "votesForA": 1,
           "votesForB": 0,
           "questionText": "Pizza vs Ice Cream",
           "optionAText": "Pizza",
@@ -30,12 +30,26 @@
         },
         {
           "votesForA": 0,
-          "votesForB": 0,
+          "votesForB": 1,
           "questionText": "Is a hotdog a sandwich?",
           "optionAText": "Yes",
           "optionBText": "No"
         }
       ]
+    },
+    {
+      "name": "fsadf",
+      "listOfVoterIds": [],
+      "questions": [
+        {
+          "questionText": "fadsfas",
+          "optionAText": "fsdafads",
+          "optionBText": "fdsafasf",
+          "votesForA": 0,
+          "votesForB": 0
+        }
+      ],
+      "id": 3
     }
   ],
   "voters": [
@@ -58,6 +72,16 @@
       "birthdate": "10-10-2000",
       "email": "pobby_b@gmail.com",
       "phone": "0987654321"
+    },
+    {
+      "firstName": "Rand",
+      "lastName": "Name",
+      "address": "123",
+      "city": "San Jose",
+      "birthdate": "01-01-1997",
+      "email": "test@email.com",
+      "phone": "12231231212",
+      "id": 3
     }
   ]
 }

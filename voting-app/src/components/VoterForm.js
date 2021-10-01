@@ -36,9 +36,9 @@ export const VoterForm = ({ onSubmitVoter}) => {
     }
     
     return (
-      <header>
+      <div className="voterForm">
         <h1>Registration form </h1>
-        <form>
+        <form >
             <div>
                 <label htmlFor="firstName-input">First Name</label>
                 <input
@@ -114,6 +114,6 @@ export const VoterForm = ({ onSubmitVoter}) => {
                 Submit
             </button>
         </form>        
-      </header>
+      </div>
     );
   };
