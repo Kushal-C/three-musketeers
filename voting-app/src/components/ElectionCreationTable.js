@@ -1,7 +1,8 @@
+import { ElectionCreationViewRow } from "./ElectionCreationViewRow"
 
 
 
-export const ElectionCreationTable = ({buttonText, createdElections}) => {
+export const ElectionCreationTable = ({buttonText, elections, onSaveElection: saveElection}) => {
     return(
     <table>
       <thead>
@@ -15,20 +16,10 @@ export const ElectionCreationTable = ({buttonText, createdElections}) => {
         </tr>
       </thead>
       <tbody>
-          {createdElections.map((election) => 
-          <tr>
-            <td>{election.name}</td>
-            <td>{election.questions[0].questionText}</td>
-            <td>{election.questions[0].optionAText}</td>
-            <td>{election.questions[0].optionBText}</td>
-            <td>{election.questions[0].votesForA}</td>
-            <td>{election.questions[0].votesForB}</td>
-          </tr>
+          {elections.map((election) => 
+            <ElectionCreationViewRow key={election.id} election={election} />
           )}
       </tbody>
-      <button type="button" onClick={() => null /*submitElections*/}>
-            {buttonText}
-        </button>
     </table>
     )
 }
