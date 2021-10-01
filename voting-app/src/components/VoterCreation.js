@@ -1,18 +1,13 @@
-import { useState } from 'react';
-
 import { VoterList } from './VoterList';
 import { VoterForm } from './VoterForm';
 
 export const VoterCreation = ({ 
-  voters: initialVoters, voterId: editVoterId, votersSort: votersSort, 
+  votersSort, voters: initialVoters, voterId: editVoterId,
   onSortVoters: sortVoters, onAddVoter : addVoter,
-  OnSaveVoter: saveVoter, onDeleteVoter: deleteVoter, 
+  onSaveVoter: saveVoter, onDeleteVoter: deleteVoter, 
   onCancelVoter: cancelVoter, onEditVoter: editVoter,
 
-}) => {
-
-  console.log(editVoterId);
-  
+}) => {  
     return (
       <>
         <h1>Voter registration system</h1>

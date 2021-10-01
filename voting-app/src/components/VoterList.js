@@ -38,7 +38,6 @@ export const VoterList = ({
  }) => {
 
     
-    console.log(sortVoters);
     const sortArrow = sortArrowWrapper(col, dir);
 
     sortArrow('id')

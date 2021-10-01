@@ -1,16 +1,15 @@
 import { bindActionCreators } from "redux";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { ElectionCreationForm } from '../components/ElectionCreationForm';
 
-import { createNewElectionAction } from '../actions/electionActions';
+import { createElection } from '../actions/electionActions';
 
 export const ElectionCreationFormConatiner = () => {
-    
-    const elections = useSelector(state => state.elections);
+
 
     const actions = bindActionCreators({
-      onAdd: createNewElectionAction,
+      onAdd: createElection,
     }, useDispatch());
 
     return( 

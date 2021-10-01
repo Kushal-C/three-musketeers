@@ -1,6 +1,7 @@
-import { createAddVoterAction, createReplaceVoterAction, createRemoveVoterAction, createCancelVoterAction, createEditVoterAction, createSortVotersAction } from "../actions/voterActions";
+import { addVoter, replaceVoter, deleteVoter, createCancelVoterAction, createEditVoterAction, createSortVotersAction, refreshVoters} from "../actions/voterActions";
 import { bindActionCreators } from "redux";
 import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useMemo } from "react";
 import { VoterCreation } from "../components/VoterCreation";
 
 import { sortedItemsSelector } from "../selectors/sortedItemsSelector";
@@ -13,15 +14,18 @@ export const VoterCreationContainer = () => {
     const voterId = useSelector(state => state.editVoterId);
     const votersSort = useSelector(s => s.votersSort);
 
-
-    const action = bindActionCreators({
-        onAddVoter : createAddVoterAction,
-        OnSaveVoter : createReplaceVoterAction,
-        onDeleteVoter : createRemoveVoterAction,
+    const dispatch = useDispatch();
+    
+    const action = useMemo(() => bindActionCreators({
+        onAddVoter : addVoter,
+        onSaveVoter : replaceVoter,
+        onDeleteVoter : deleteVoter,
         onCancelVoter : createCancelVoterAction,
         onEditVoter : createEditVoterAction,
         onSortVoters: createSortVotersAction,
-    }, useDispatch());
+    }, dispatch), [dispatch]);
+
+    useEffect(() => dispatch(refreshVoters()), [dispatch]);
 
     return (
         <VoterCreation voters={voters} voterId={voterId} votersSort={votersSort} {...action} />

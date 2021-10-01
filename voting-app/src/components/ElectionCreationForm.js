@@ -11,11 +11,14 @@ export const ElectionCreationForm = ({buttonText, onAdd: onSubmitElection}) => {
         questions: [],
     });
 
-    const [questionForm, setQuestionForm] = useState({questionText: '',
-    optionAText: '',
-    optionBText: '', 
-    votesForA: 0,
-    votesForB: 0,});
+    const [questionForm, setQuestionForm] = useState(
+        {
+            questionText: '',
+            optionAText: '',
+            optionBText: '', 
+            votesForA: 0,
+            votesForB: 0,
+        });
  
     const change = e => {
         setElectionForm({
@@ -95,10 +98,14 @@ export const ElectionCreationForm = ({buttonText, onAdd: onSubmitElection}) => {
                 ></input>
                 <button type="button" onClick={submitQuestion}>
                     Submit Question
-                </button>
-                <button type="button" onClick={submitElection}>
+                </button> 
+                {
+                    electionForm.questions.length > 0? 
+                    <button type="button" onClick={submitElection}>
                     {buttonText}
-                </button>
+                </button> :
+                    null
+                }
             </div>
         </form>
         </header>

@@ -2,12 +2,18 @@
 
 import { ElectionCreationTable } from '../components/ElectionCreationTable';
 
-import { useSelector } from 'react-redux';
+import { getElections } from '../actions/electionActions';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 export const ElectionCreationTableContainer = () => {
 
+    const dispatch = useDispatch();
+    const elections = useSelector(state => state.elections);
 
-    const elections = useSelector( state => state.elections);
+    useEffect(() => dispatch(getElections()), [dispatch]);
+
+
     return(
 
         <div>   

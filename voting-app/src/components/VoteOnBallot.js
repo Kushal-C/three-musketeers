@@ -7,14 +7,23 @@ export const VoteOnBallet = ({election, voterId, onVoteOnElection: onVote}) => {
 
     //{electionId, voterId, votes } 
     const answerQuestion = (value, index) => {
-        console.log(questionAnswers);
         let questionAnswersCopy = [...questionAnswers];
         questionAnswersCopy[index] = value;
         setQuestionAnswers(questionAnswersCopy);
     }
 
     const submitVote = () => {
-        onVote({electionId: election.id, voterId, votes: questionAnswers});
+        let electionCopy = {...election};
+        electionCopy.listOfVoterIds.push(voterId);
+        electionCopy.questions.forEach((question, index) => {
+            if(questionAnswers[index] === 'a'){
+                question.votesForA++;
+            }
+            else {
+                question.votesForB++;
+            }
+        });
+        onVote(electionCopy);
         setVoted(true);
     };
 
