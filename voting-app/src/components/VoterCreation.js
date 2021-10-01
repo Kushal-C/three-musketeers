@@ -14,9 +14,6 @@ export const VoterCreation = ({
     return (
       <>
         <h1>Voter registration system</h1>
-        <button>Register Voter</button>
-        <button>Display Registered Voters</button>
-
         <VoterForm onSubmitVoter={addVoter}/>
         <VoterList voters={initialVoters} editVoterId={editVoterId}
           onEditVoter={editVoter} onDeleteVoter={deleteVoter} 

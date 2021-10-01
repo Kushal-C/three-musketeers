@@ -49,6 +49,7 @@ export const electionsReducer = ( elections = dummyElections, action) => {
             return electionCopy;
         case VOTE_ON_ELECTION:
             let {electionId, voterId, votes } = action.vote;
+            
             let electionsCopy = [...elections];
             let index = electionsCopy.findIndex((e) => e.id === electionId);
             electionsCopy[index].listOfVoterIds.push(voterId);
