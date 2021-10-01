@@ -4,9 +4,11 @@ import { VoterList } from './VoterList';
 import { VoterForm } from './VoterForm';
 
 export const VoterCreation = ({ 
-  voters: initialVoters, voterId: editVoterId, onAddVoter : addVoter,
+  voters: initialVoters, voterId: editVoterId, votersSort: votersSort, 
+  onSortVoters: sortVoters, onAddVoter : addVoter,
   OnSaveVoter: saveVoter, onDeleteVoter: deleteVoter, 
   onCancelVoter: cancelVoter, onEditVoter: editVoter,
+
 }) => {
 
   console.log(editVoterId);
@@ -17,7 +19,8 @@ export const VoterCreation = ({
         <VoterForm onSubmitVoter={addVoter}/>
         <VoterList voters={initialVoters} editVoterId={editVoterId}
           onEditVoter={editVoter} onDeleteVoter={deleteVoter} 
-          onSaveVoter={saveVoter} onCancelVoter={cancelVoter} />
+          onSaveVoter={saveVoter} onCancelVoter={cancelVoter}
+          votersSort={votersSort} onSortVoters={sortVoters}/>
       </>
     );
   };

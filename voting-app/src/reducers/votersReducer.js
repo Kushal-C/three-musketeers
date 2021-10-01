@@ -1,4 +1,4 @@
-import { VERIFY_VOTER_INFORMATION, ADD_VOTER, EDIT_VOTER, REMOVE_VOTER, CANCEL_VOTER, REPLACE_VOTER } from "../actions/voterActions";
+import { VERIFY_VOTER_INFORMATION, ADD_VOTER, EDIT_VOTER, REMOVE_VOTER, CANCEL_VOTER, REPLACE_VOTER, SORT_VOTERS } from "../actions/voterActions";
 
 const dummyVoters= [
     {
@@ -64,3 +64,15 @@ export const votersReducer = ( voters = dummyVoters, action ) => {
             return voters;    
     }
 };
+
+export const votersSortReducer = (votersSort = { col: 'id', dir: 'asc' }, action) => {
+    if (action.type === SORT_VOTERS) {
+      if (action.col === votersSort.col) {
+        return { col: votersSort.col, dir: votersSort.dir === 'asc' ? 'desc' : 'asc' };
+      } else {
+        return { col: action.col, dir: 'asc' };
+      };
+    }
+  
+    return votersSort;
+  };
