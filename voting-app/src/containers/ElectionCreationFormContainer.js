@@ -7,7 +7,6 @@ import { createNewElectionAction } from '../actions/electionActions';
 
 export const ElectionCreationFormConatiner = () => {
     
-    //const dispatch = useDispatch();
     const elections = useSelector(state => state.elections);
 
     const actions = bindActionCreators({
