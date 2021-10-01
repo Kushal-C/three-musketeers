@@ -55,11 +55,12 @@ export const ElectionCreationForm = ({buttonText, onAdd: onSubmitElection}) => {
     }
 
     return(
-        <form>
+        <form className="form-group">
             <div>
                 <h2>Form</h2>
                 <label htmlFor="name-input">Election Name</label>
                 <input
+                    className="form-control form-control-sm"
                     type="text"
                     id="name-input"
                     value={electionForm.name}
@@ -73,6 +74,7 @@ export const ElectionCreationForm = ({buttonText, onAdd: onSubmitElection}) => {
                 }
                 <label htmlFor="question-input">Question</label>
                 <input
+                    className="form-control form-control-sm"
                     type="text"
                     id="question-input"
                     value={questionForm.questionText}
@@ -81,6 +83,7 @@ export const ElectionCreationForm = ({buttonText, onAdd: onSubmitElection}) => {
                 ></input>
                 <label htmlFor="option-A-input">Option A</label>
                 <input
+                    className="form-control form-control-sm"
                     type="text"
                     id="option-A-input"
                     value={questionForm.optionAText}
@@ -89,6 +92,7 @@ export const ElectionCreationForm = ({buttonText, onAdd: onSubmitElection}) => {
                 ></input>
                 <label htmlFor="option-B-input">Option B</label>
                 <input
+                     className="form-control"
                     type="text"
                     id="option-B-input"
                     value={questionForm.optionBText}

@@ -37,23 +37,23 @@ export const VoteOnBallet = ({election, voterId, onVoteOnElection: onVote}) => {
                 {election.questions.map((q, i) => {
                     return (
                     <li key={i}>
-                        <h3>{q.questionText}</h3>
+                        <h3 className="questionText">{q.questionText}</h3>
                         <form>
-                            <label>
+                            <label className="form-check-label">
                             <input type="radio" name={q.questionText} onChange={() => answerQuestion("a", i)}/>{q.optionAText}</label>
-                            <label>
+                            <label className="form-check-label">
                             <input type="radio" name={q.questionText} onChange={() => answerQuestion("b", i)}/>{q.optionBText}</label>
                         </form>
                     </li>
                     );
                 })}
             </ul>
-            <button type="submit" onClick={() => submitVote()}>Cast Vote</button>
+            <button type="submit" className="btn btn-primary"onClick={() => submitVote()}>Cast Vote</button>
         </div>
         :
         <div>
-            <h2>Thanks for voting in {election.name}!</h2>
-            <Link to="/capture-votes">Click here to go back to the main voting page</Link>
+            <h2 className="successText">Thanks for voting in {election.name}!</h2>
+            <Link className="btn btn-primary" to="/capture-votes">Click here to go back to the main voting page</Link>
         </div>
         }
         </>

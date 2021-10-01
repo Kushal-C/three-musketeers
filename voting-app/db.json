@@ -3,10 +3,12 @@
     {
       "id": 1,
       "name": "Cats vs Dogs 2021",
-      "listOfVoterIds": [],
+      "listOfVoterIds": [
+        1
+      ],
       "questions": [
         {
-          "votesForA": 0,
+          "votesForA": 1,
           "votesForB": 0,
           "questionText": "Cats vs Dogs?",
           "optionAText": "Cats",

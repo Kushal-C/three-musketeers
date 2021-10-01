@@ -4,10 +4,10 @@ import { ElectionCreationTableContainer} from '../containers/ElectionCreationTab
 
 export const ElectionCreation = () => {
     return (
-        <>
+        <div style={{'marginTop':'80px'}}>
             <h1>ElectionCreation</h1>
             <ElectionCreationTableContainer />
             <ElectionCreationFormConatiner />
-        </>
+        </div>
     );
 }

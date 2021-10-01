@@ -16,13 +16,13 @@ export const VerifyStatus = ({election , validateVoter}) => {
         <div>
             <h2>Please enter your personal information to be eligible to vote for this election</h2>
             <form>
-                <label htmlFor="firstNameInput">First Name</label>
-                <input type="text" id="firstNameInput" name="firstName" value={form.firstName} onChange={change}></input>
-                <label htmlFor="lastNameInput">Last Name</label>
-                <input type="text" id="lastNameInput" name="lastName" value={form.lastName} onChange={change}></input>
-                <label htmlFor="voterIDInput">Voter ID</label>
-                <input type="number" id="voterIDInput" name="id" value={form.id} onChange={change}></input>
-                <button type="submit" onClick={() => validateVoter(form)}>Verify Voter Status</button>
+                <label className="form-check-label" htmlFor="firstNameInput">First Name</label>
+                <input className="form-control" type="text" id="firstNameInput" name="firstName" value={form.firstName} onChange={change}></input>
+                <label className="form-check-label" htmlFor="lastNameInput">Last Name</label>
+                <input className="form-control"  type="text" id="lastNameInput" name="lastName" value={form.lastName} onChange={change}></input>
+                <label className="form-check-label" htmlFor="voterIDInput">Voter ID</label>
+                <input className="form-control" type="number" id="voterIDInput" name="id" value={form.id} onChange={change}></input>
+                <button className="btn btn-secondary" type="submit" onClick={() => validateVoter(form)}>Verify Voter Status</button>
             </form>
         </div>
     )

@@ -8,7 +8,7 @@ export const ElectionCreationTable = ({buttonText, elections, onSaveElection: sa
         <thead>
           <tr>
               <th>Name</th>
-              <th>Question</th>
+              <th>Question(s)</th>
               <th>Option A</th>
               <th>Option B</th>
               <th>Votes for A</th>

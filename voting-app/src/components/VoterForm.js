@@ -42,6 +42,7 @@ export const VoterForm = ({ onSubmitVoter}) => {
             <div>
                 <label htmlFor="firstName-input">First Name</label>
                 <input
+                    className="form-control" 
                     type="text"
                     id="firstName-input"
                     value={voterForm.firstName}
@@ -52,6 +53,7 @@ export const VoterForm = ({ onSubmitVoter}) => {
             <div>
                 <label htmlFor="lastName-input">Last Name</label>
                 <input
+                    className="form-control" 
                     type="text"
                     id="lastName-input"
                     value={voterForm.lastName}
@@ -62,6 +64,7 @@ export const VoterForm = ({ onSubmitVoter}) => {
             <div>    
                 <label htmlFor="address-input">Address</label>
                 <input
+                    className="form-control" 
                     type="text"
                     id="address-input"
                     value={voterForm.address}
@@ -72,6 +75,7 @@ export const VoterForm = ({ onSubmitVoter}) => {
             <div>    
                 <label htmlFor="city-input">City</label>
                 <input
+                    className="form-control" 
                     type="text"
                     id="city-input"
                     value={voterForm.city}
@@ -82,6 +86,7 @@ export const VoterForm = ({ onSubmitVoter}) => {
             <div>    
                 <label htmlFor="birthdate-input">Birthdate</label>
                 <input
+                    className="form-control" 
                     type="text"
                     id="birthdate-input"
                     value={voterForm.birthdate}
@@ -92,6 +97,7 @@ export const VoterForm = ({ onSubmitVoter}) => {
             <div>    
                 <label htmlFor="email-input">Email</label>
                 <input
+                    className="form-control" 
                     type="text"
                     id="email-input"
                     value={voterForm.email}
@@ -102,6 +108,7 @@ export const VoterForm = ({ onSubmitVoter}) => {
             <div>    
                 <label htmlFor="phone-input">Phone</label>
                 <input
+                    className="form-control" 
                     type="text"
                     id="phone-input"
                     value={voterForm.phone}
