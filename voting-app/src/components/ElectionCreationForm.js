@@ -7,10 +7,15 @@ export const ElectionCreationForm = ({buttonText, onAdd: onSubmitElection}) => {
         setElectionForm,
     ] = useState({
         name: '',
-        question: '',
-        optionA: '',
-        optionB: '',
+        listOfVoterIds: [],
+        questions: [],
     });
+
+    const [questionForm, setQuestionForm] = useState({questionText: '',
+    optionAText: '',
+    optionBText: '', 
+    votesForA: 0,
+    votesForB: 0,});
  
     const change = e => {
         setElectionForm({
@@ -19,16 +24,31 @@ export const ElectionCreationForm = ({buttonText, onAdd: onSubmitElection}) => {
         });
     };
 
+    const questionChange = e => {
+        setQuestionForm({
+            ...questionForm,
+            [e.target.name]: e.target.value,
+        });
+    }
+
     const submitElection = () => {
         onSubmitElection({ ...electionForm });
         setElectionForm({
             name: '',
-            question: '',
-            optionA: '',
-            optionB: '', 
-            votesForA: 0,
-            votesForB: 0,
+            listOfVoterIds: [],
+            questions: [],
         });
+    }
+
+    const submitQuestion = () => {
+        let questionsCopy = [...electionForm.questions];
+        questionsCopy.push(questionForm);
+        setElectionForm( {...electionForm, questions: questionsCopy});
+        setQuestionForm({questionText: '',
+        optionAText: '',
+        optionBText: '', 
+        votesForA: 0,
+        votesForB: 0,});
     }
 
     return(
@@ -44,30 +64,38 @@ export const ElectionCreationForm = ({buttonText, onAdd: onSubmitElection}) => {
                     onChange={change}
                     name="name"
                 ></input>
+                {
+                    electionForm.questions.map((q) => {
+                        return <div> {q.questionText}</div>
+                    })
+                }
                 <label htmlFor="question-input">Question</label>
                 <input
                     type="text"
                     id="question-input"
-                    value={electionForm.question}
-                    onChange={change}
-                    name="question"
+                    value={questionForm.questionText}
+                    onChange={questionChange}
+                    name="questionText"
                 ></input>
                 <label htmlFor="option-A-input">Option A</label>
                 <input
                     type="text"
                     id="option-A-input"
-                    value={electionForm.optionA}
-                    onChange={change}
-                    name="optionA"
+                    value={questionForm.optionAText}
+                    onChange={questionChange}
+                    name="optionAText"
                 ></input>
                 <label htmlFor="option-B-input">Option B</label>
                 <input
                     type="text"
                     id="option-B-input"
-                    value={electionForm.optionB}
-                    onChange={change}
-                    name="optionB"
+                    value={questionForm.optionBText}
+                    onChange={questionChange}
+                    name="optionBText"
                 ></input>
+                <button type="button" onClick={submitQuestion}>
+                    Submit Question
+                </button>
                 <button type="button" onClick={submitElection}>
                     {buttonText}
                 </button>
