@@ -31,6 +31,6 @@ export const createSortVotersAction = (col) => ({ type: SORT_VOTERS, col });
 
 export const createRemoveVoterAction = voterId => ({ type: REMOVE_VOTER, voterId });
 
-export const createReplaceVoterAction = voterId => ({ type: REPLACE_VOTER, voterId });
+export const createReplaceVoterAction = voter => ({ type: REPLACE_VOTER, voter });
 
 export const createGetVoterListAction = () => ({type: GET_VOTER_LIST,});

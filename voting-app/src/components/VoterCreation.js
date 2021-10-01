@@ -3,31 +3,13 @@ import { useState } from 'react';
 import { VoterList } from './VoterList';
 import { VoterForm } from './VoterForm';
 
-export const VoterCreation = ({ voters: initialVoters , onAddVoter : addVoter}) => {
+export const VoterCreation = ({ 
+  voters: initialVoters, voterId: editVoterId, onAddVoter : addVoter,
+  OnSaveVoter: saveVoter, onDeleteVoter: deleteVoter, 
+  onCancelVoter: cancelVoter, onEditVoter: editVoter,
+}) => {
 
-  const [ voters, setVoters ] = useState([ ...initialVoters ]);
-
-  const [ editVoterId, setEditVoterId ] = useState(-1);
-
-  const saveVoter = (voter) => {
-    const newVoters = [ ...voters ];
-    const voterIndex = newVoters.findIndex(v => v.id === voter.id);
-    newVoters[voterIndex] = voter;
-    setVoters(newVoters);
-    setEditVoterId(-1);
-  };
-
-
-  const deleteVoter = (voterId) => {
-    setVoters(voters.filter(voter => voter.id !== voterId));
-    setEditVoterId(-1);
-  }  
-
-  const cancelVoter = () => {
-    setEditVoterId(-1);
-  };
-
-  const editVoter = setEditVoterId;
+  console.log(editVoterId);
   
     return (
       <>

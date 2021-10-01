@@ -1,4 +1,4 @@
-import { VERIFY_VOTER_INFORMATION, ADD_VOTER, EDIT_VOTER, REMOVE_VOTER } from "../actions/voterActions";
+import { VERIFY_VOTER_INFORMATION, ADD_VOTER, EDIT_VOTER, REMOVE_VOTER, CANCEL_VOTER, REPLACE_VOTER } from "../actions/voterActions";
 
 const dummyVoters= [
     {
@@ -29,6 +29,12 @@ export const voterEditReducer = ( voterId = -1, action) => {
             return -1;
         case EDIT_VOTER:
             return action.voterId;
+        case CANCEL_VOTER:
+            return -1;
+        case REMOVE_VOTER:
+            return -1;    
+        case REPLACE_VOTER:
+            return -1;    
         default:
             return voterId;    
     }
@@ -46,9 +52,14 @@ export const votersReducer = ( voters = dummyVoters, action ) => {
             ];
         case REMOVE_VOTER:
             let votersCopy = [...voters];
-            let index = votersCopy.indexOf((v) => v.id === action.voterId)
+            let index = votersCopy.findIndex((v) => v.id === action.voterId)
             votersCopy.splice(index, 1);
             return votersCopy;
+        case REPLACE_VOTER:
+            let newVoters = [ ...voters ];
+            let voterIndex = newVoters.findIndex(v => v.id === action.voter.id)
+            newVoters[voterIndex] = action.voter;
+            return newVoters;
         default:
             return voters;    
     }
